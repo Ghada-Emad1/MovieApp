@@ -1,0 +1,52 @@
+<div>
+  <div class="flex flex-wrap justify-center items-center gap-10">
+    <div class="flex rounded-lg p-10 w-[1000px] h-[700px] gap-10">
+      <img
+        class="rounded-2xl h-[600px] w-[600px]"
+        [src]="'https://image.tmdb.org/t/p/w300' + tvDetailsList.poster_path"
+        alt="{{ tvDetailsList.last_air_date }}"
+      />
+
+      <div class="flex flex-col justify-center items-start gap-2 ">
+        @if(tvDetailsList.name){
+        <h1 class="text-white font-bold text-shadow-black">
+          <span class="text-red-800 font-bold text-lg">Title : </span
+          >{{ tvDetailsList.original_name }}
+        </h1>
+        }@else{
+        <h1 class="text-white font-bold text-shadow-black">
+          <span class="text-red-800 font-bold text-lg">Title : </span
+          >{{ tvDetailsList.name }}
+        </h1>
+        }
+        <p class="text-white font-bold text-shadow-black">
+          <span class="text-red-800 font-bold text-lg">Overview : </span>
+          {{ tvDetailsList.overview }}
+        </p>
+        
+        <p class="text-red-900 font-bold">
+          Release Date :
+          <span class="text-white font-semibold text-shadow-black">{{
+            tvDetailsList.last_air_date
+          }}</span>
+        </p>
+       <p class="text-red-900 font-bold">
+          Number of Seasons :
+          <span class="text-white font-semibold text-shadow-black">{{
+            tvDetailsList.number_of_seasons
+          }}</span>
+        </p>
+        <p class="text-red-900 font-bold">
+          Number of Epsoides:
+          <span class="text-white font-semibold text-shadow-black">{{
+            tvDetailsList.number_of_episodes
+          }}</span>
+        </p>
+        <small class="text-red-900 font-bold"
+          >Rating : {{ tvDetailsList.vote_average }}
+          <span class="text-lg">⭐</span>
+        </small>
+      </div>
+    </div>
+  </div>
+</div>

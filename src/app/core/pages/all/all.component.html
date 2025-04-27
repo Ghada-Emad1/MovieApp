@@ -1,0 +1,25 @@
+<div class="mt-10">
+  <div class="flex flex-wrap justify-center items-center gap-10">
+    @for(movie of allmovieList;track $index){
+    <div
+      class="flex flex-col bg-pink-300 rounded-lg gap-1 p-10 w-[500px] h-[700px]"
+    >
+      <img
+        class="rounded-2xl w-[450px] h-[400px] object-cover"
+        [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path"
+        alt="{{ movie.title }}"
+      />
+
+      @if(movie.title){
+      <h1 class="text-white font-bold  text-shadow-black"><span class="text-red-800 font-bold text-lg">Title : </span>{{ movie.title }}</h1>
+      }@else{
+       <h1 class="text-white font-bold  text-shadow-black"><span class="text-red-800 font-bold text-lg">Title : </span>{{ movie.name }}</h1>
+      }
+      <p class="text-white font-bold text-shadow-black">
+        <span class="text-red-800 font-bold text-lg">Overview : </span> {{ movie.overview |shorten:200}}</p>
+      <small class="text-red-900 font-bold ">Rating : {{ movie.vote_average }} <span class="text-lg">⭐</span> </small>
+      <p class="text-center bg-red-700 px-8 py-3 rounded-lg text-white text-lg font-semibold">{{ movie.media_type }}</p>
+    </div>
+    }
+  </div>
+</div>

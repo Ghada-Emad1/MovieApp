@@ -1,0 +1,54 @@
+<div>
+  <div class="flex flex-wrap justify-center items-center gap-10">
+    <div class="flex rounded-lg p-10 w-[1000px] h-[700px] gap-10">
+      <img
+        class="rounded-2xl h-[600px] w-[600px]"
+        [src]="'https://image.tmdb.org/t/p/w300' + artistInfo.profile_path"
+        alt="{{ artistInfo.name }}"
+      />
+
+      <div class="flex flex-col justify-center items-start">
+        <h1 class="text-white font-bold text-shadow-black">
+          <span class="text-red-800 font-bold text-lg">Name : </span
+          >{{ artistInfo.name }}
+        </h1>
+
+        @if(artistInfo.biography){
+        <p class="text-white font-bold text-shadow-black">
+          <span class="text-red-800 font-bold text-lg">Overview : </span>
+          {{ artistInfo.biography }}
+        </p>
+        } @if(artistInfo.birthday){
+        <p class="text-red-900 font-bold">
+          BirthDay : {{ artistInfo.birthday }}
+          <span class="text-lg">⭐</span>
+        </p>
+        } @if(artistInfo.place_of_birth){
+        <p class="text-red-900 font-bold">
+          Place of Birth :
+          <span class="text-white font-semibold text-shadow-black">{{
+            artistInfo.place_of_birth
+          }}</span>
+        </p>
+        } @if(artistInfo.known_for_department){
+        <p class="text-red-800 font-bold">
+          Artist DepartMent :
+          <span class="text-white font-semibold text-shadow-black">{{
+            artistInfo.known_for_department
+          }}</span>
+        </p>
+        } @if(artistInfo.gender ==1){
+        <h1 class="text-white font-bold text-shadow-black">
+          <span class="text-red-800 font-bold text-lg">Gender : </span>Female
+        </h1>
+
+        }@else {
+        <h1 class="text-white font-bold text-shadow-black">
+          <span class="text-red-800 font-bold text-lg">Gender : </span>Male
+        </h1>
+
+        }
+      </div>
+    </div>
+  </div>
+</div>

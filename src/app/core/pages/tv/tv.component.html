@@ -1,0 +1,44 @@
+<div class="mt-10">
+  <div class="flex flex-wrap justify-center items-center gap-10">
+    @for(tv of tvList;track $index){
+    <a  routerLink="/tv-details/{{tv.id }}">
+      <div
+        
+        class="flex flex-col bg-pink-300 rounded-lg gap-1 p-10 w-[500px] h-[700px]"
+      >
+        <img
+          class="rounded-2xl w-[450px] h-[400px] object-cover"
+          [src]="'https://image.tmdb.org/t/p/w300' + tv.poster_path"
+          alt="{{ tv.title }}"
+        />
+
+        @if(tv.name){
+        <h1 class="text-white font-bold text-shadow-black">
+          <span class="text-red-800 font-bold text-lg">Title : </span
+          >{{ tv.name }}
+        </h1>
+        }@else{
+        <h1 class="text-white font-bold text-shadow-black">
+          <span class="text-red-800 font-bold text-lg">Title : </span
+          >{{ tv.original_name}}
+        </h1>
+        }
+        <p class="text-white font-bold text-shadow-black">
+          <span class="text-red-800 font-bold text-lg">Overview : </span>
+          {{ tv.overview | shorten : 200 }}
+        </p>
+        <small class="text-red-900 font-bold"
+          >Rating : {{ tv.vote_average }} <span class="text-lg">⭐</span>
+        </small>
+        <p class="text-red-900 font-bold">
+          First Air Date :
+          <span class="text-white font-semibold text-shadow-black">{{
+            tv.first_air_date 
+          }}</span>
+        </p>
+      </div>
+    </a>
+
+    }
+  </div>
+</div>

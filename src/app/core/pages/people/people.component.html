@@ -1,0 +1,48 @@
+<div class="mt-10">
+  <div class="flex flex-wrap justify-center items-center gap-10">
+    @for(artist of allArtist;track $index){
+    <a routerLink="/people-details/{{ artist.id }}">
+      <div
+        class="flex flex-col bg-pink-300 rounded-lg gap-1 p-10 w-[500px] h-[550px]"
+      >
+        <img
+          class="rounded-2xl w-[450px] h-[400px] object-cover"
+          [src]="'https://image.tmdb.org/t/p/w300' + artist.profile_path"
+          alt="{{ artist.name }}"
+        />
+
+        @if(artist.name){
+        <h1 class="text-white font-bold text-shadow-black">
+          <span class="text-red-800 font-bold text-lg">Title : </span
+          >{{ artist.name }}
+        </h1>
+        }@else{
+        <h1 class="text-white font-bold text-shadow-black">
+          <span class="text-red-800 font-bold text-lg">Title : </span
+          >{{ artist.original_name }}
+        </h1>
+        }
+        <p class="text-red-800 font-bold">
+          Artist DepartMent :
+          <span class="text-white font-semibold text-shadow-black">{{
+            artist.known_for_department
+          }}</span>
+        </p>
+
+        @if(artist.gender ==1){
+        <h1 class="text-white font-bold text-shadow-black">
+          <span class="text-red-800 font-bold text-lg">Gender : </span>Female
+        </h1>
+
+        }@else {
+        <h1 class="text-white font-bold text-shadow-black">
+          <span class="text-red-800 font-bold text-lg">Gender : </span>Male
+        </h1>
+
+        }
+      </div>
+    </a>
+
+    }
+  </div>
+</div>
